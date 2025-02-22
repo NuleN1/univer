@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Photo Gallery</title>
+    <style>
+        #image {
+            width: 500px;
+            height: 300px;
+            background-color: #f0f0f0;
+            text-align: center;
+            line-height: 300px;
+            font-size: 24px;
+        }
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="image">Наведите курсор на изображение ниже, чтобы отобразить его здесь</div>
+    <img src="image1.jpg" alt="Image 1" class="thumbnail" onmouseover="upDate(this)" onmouseout="unDo()">
+    <img src="image2.jpg" alt="Image 2" class="thumbnail" onmouseover="upDate(this)" onmouseout="unDo()">
+    <img src="image3.jpg" alt="Image 3" class="thumbnail" onmouseover="upDate(this)" onmouseout="unDo()">
+    
+    <script>
+        function upDate(previewPic) {
+            console.log(previewPic);
+            console.log(previewPic.alt);
+            console.log(previewPic.src);
+
+            const imageElement = document.getElementById('image');
+            imageElement.style.backgroundImage = `url(${previewPic.src})`;
+            imageElement.innerHTML = previewPic.alt;
+        }
+
+        function unDo() {
+            const imageElement = document.getElementById('image');
+            imageElement.style.backgroundImage = '';
+            imageElement.innerHTML = 'Наведите курсор на изображение ниже, чтобы отобразить его здесь';
+        }
+    </script>
+</body>
+</html>
