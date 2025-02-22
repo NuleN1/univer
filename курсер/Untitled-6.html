@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Photo Gallery</title>
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 200px;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        .gallery img:focus, .gallery img:hover {
+            transform: scale(1.1);
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Photo Gallery</h1>
+    <div class="gallery" id="gallery">
+        <img src="image1.jpg" alt="Description of Image 1">
+        <img src="image2.jpg" alt="Description of Image 2">
+        <img src="image3.jpg" alt="Description of Image 3">
+        <img src="image4.jpg" alt="Description of Image 4">
+        <img src="image5.jpg" alt="Description of Image 5">
+        <img src="image6.jpg" alt="Description of Image 6">
+    </div>
+    <script>
+        // Функция для добавления атрибута tabindex к изображениям
+        function addTabindex() {
+            const images = document.querySelectorAll('#gallery img');
+            images.forEach((img, index) => {
+                img.setAttribute('tabindex', '0');
+            });
+            console.log('Tabindex attributes added to images.');
+        }
+
+        // Функция для обработки события onfocus
+        function handleFocus(event) {
+            event.target.style.border = '2px solid blue';
+        }
+
+        // Функция для обработки события onblur
+        function handleBlur(event) {
+            event.target.style.border = '2px solid #ddd';
+        }
+
+        // Функция для обработки события onmouseover
+        function handleMouseOver(event) {
+            event.target.style.border = '2px solid blue';
+        }
+
+        // Функция для обработки события onmouseleave
+        function handleMouseLeave(event) {
+            event.target.style.border = '2px solid #ddd';
+        }
+
+        // Добавление слушателей событий
+        function addEventListeners() {
+            const images = document.querySelectorAll('#gallery img');
+            images.forEach(img => {
+                img.addEventListener('focus', handleFocus);
+                img.addEventListener('blur', handleBlur);
+                img.addEventListener('mouseover', handleMouseOver);
+                img.addEventListener('mouseleave', handleMouseLeave);
+            });
+        }
+
+        // Функция для обработки события onload
+        function handleLoad() {
+            addTabindex();
+            addEventListeners();
+            console.log('Page loaded and event listeners added.');
+        }
+
+        // Добавление слушателя события onload
+        window.addEventListener('load', handleLoad);
+    </script>
+</body>
+</html>
