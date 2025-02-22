@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Ваш проект</title>
+    <style>
+        /* Стили для ссылки "Skip to Main Content", видимой только при фокусировке */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Стили для элемента nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin: 0 auto;
+            background: #333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Стили для изображений, используя модель box */
+        img {
+            border: 2px solid #333;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        /* Стили для класса grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .grid img {
+            width: 100%;
+        }
+
+        /* Стили для класса flex */
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .flex img:nth-child(even) {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to Main Content</a>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <img src="your-image.jpg" alt="Описание изображения">
+</nav>
+
+<main id="main-content">
+    <!-- Основное содержание страницы -->
+    <div class="grid">
+        <img src="your-image1.jpg" alt="Описание изображения">
+        <img src="your-image2.jpg" alt="Описание изображения">
+        <!-- Другие элементы grid -->
+    </div>
+    
+    <div class="flex">
+        <img src="your-image3.jpg" alt="Описание изображения">
+        <img src="your-image4.jpg" alt="Описание изображения">
+        <img src="your-image5.jpg" alt="Описание изображения">
+        <!-- Другие элементы flex -->
+    </div>
+</main>
+
+</body>
+</html>
